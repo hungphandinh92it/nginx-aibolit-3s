@@ -14,16 +14,17 @@ spec:
   selector:
     matchLabels:
       app: nginx
+  revisionHistoryLimit: 0
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: nginx
       name: nginx
     spec:
       containers:
-      - image: registry.ng.bluemix.net/quan_thinklabs/nginx
+      - image: registry.ng.bluemix.net/quan_thinklabs/nginx-aibolit
         name: nginx
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         - containerPort: 443
