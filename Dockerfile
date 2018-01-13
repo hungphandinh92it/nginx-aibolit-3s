@@ -7,4 +7,4 @@ COPY ./conf.d /etc/nginx/conf.d
 COPY ./ssl /var/ssl
 EXPOSE 80 443
 
-CMD nginx -s reload
+#CMD nginx -s reload
