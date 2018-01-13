@@ -3,7 +3,8 @@ MAINTAINER  Nguyen Quan  <quan@thinklabs.vn>
 
 RUN apt-get update -yq && \
     apt-get install -yq curl iputils-ping vim
-COPY ./conf.d /etc/nginx/
-RUN nginx -s reload
+COPY ./conf.d /etc/nginx/conf.d
 
 EXPOSE 80 443
+
+CMD nginx -s reload
