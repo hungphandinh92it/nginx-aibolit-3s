@@ -8,7 +8,7 @@ metadata:
   generation: 1
   labels:
     app: nginx
-  name: nginx
+  name: nginx-deployment
   namespace: default
 spec:
   selector:
@@ -22,7 +22,7 @@ spec:
       name: nginx
     spec:
       containers:
-      - image: registry.ng.bluemix.net/quan_thinklabs/nginx-aibolit
+      - image: registry.ng.bluemix.net/poc_space/nginx-poc
         name: nginx
         imagePullPolicy: Always
         ports:
