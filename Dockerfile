@@ -11,4 +11,4 @@ COPY ./ssl /var/ssl
 
 EXPOSE 80 443
 
-#CMD /certbot-auto --agree-tos --email quan@thinklabs.vn -d ethercis.thinklabs.vn -d jitsi-meet.thinklabs.vn -d pulsetile.thinklabs.vn -d ripple.thinklabs.vn -d whiteboard.thinklabs.vn -d ws.thinklabs.vn -d admin.311.thinklabs.vn -d 311.thinklabs.vn -d api.311.thinklabs.vn
+#CMD /certbot-auto --agree-tos --email quan@thinklabs.vn -d ethercis.thinklabs.vn -d jitsi-meet.thinklabs.vn -d pulsetile.thinklabs.vn -d ripple.thinklabs.vn -d whiteboard.thinklabs.vn -d ws.thinklabs.vn -d aqm.thinklabs.vn -d admin.311.thinklabs.vn -d 311.thinklabs.vn -d api.311.thinklabs.vn
