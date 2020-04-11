@@ -2,30 +2,72 @@
 # and an empty file will abort the edit. If an error occurs while saving this file will be
 # reopened with the relevant failures.
 #
-apiVersion: extensions/v1beta1
+#apiVersion: extensions/v1beta1
+#kind: Deployment
+#metadata:
+#  generation: 1
+#  labels:
+#    app: nginx
+#  name: nginx
+#  namespace: default
+#spec:
+#  selector:
+#    matchLabels:
+#      app: nginx
+#  revisionHistoryLimit: 0
+#  template:
+#    metadata:
+#      labels:
+#        app: nginx
+#      name: nginx
+#    spec:
+#      containers:
+#      - image: registry.ng.bluemix.net/quan_thinklabs/nginx-aibolit
+#        name: nginx
+#        imagePullPolicy: Always
+#        ports:
+#        - containerPort: 80
+#        - containerPort: 443
+#      dnsPolicy: ClusterFirst
+######################################
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  generation: 1
-  labels:
-    app: nginx
   name: nginx
-  namespace: default
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
-  revisionHistoryLimit: 0
   template:
     metadata:
       labels:
         app: nginx
-      name: nginx
     spec:
       containers:
-      - image: registry.ng.bluemix.net/quan_thinklabs/nginx-aibolit
-        name: nginx
-        imagePullPolicy: Always
+      - name: nginx
+        image: nginx:1
+        # for local development against minikube registry
+        #imagePullPolicy: Never        
         ports:
         - containerPort: 80
         - containerPort: 443
-      dnsPolicy: ClusterFirst
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  type: NodePort
+  ports:
+    # the port that this service should serve on
+    - port: 80
+      targetPort: 80
+    - port: 443
+      targetPort: 443
+  # label keys and values that must match in order to receive traffic for this service
+  selector:
+    app: nginx
+
