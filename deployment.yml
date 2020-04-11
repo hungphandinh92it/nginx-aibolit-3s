@@ -33,19 +33,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-app
     spec:
       containers:
-      - name: nginx
+      - name: nginx-app
         image: nginx:1
         # for local development against minikube registry
         #imagePullPolicy: Never        
@@ -56,9 +56,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-service
   labels:
-    app: nginx
+    app: nginx-service
 spec:
   type: NodePort
   ports:
@@ -69,5 +69,5 @@ spec:
       targetPort: 443
   # label keys and values that must match in order to receive traffic for this service
   selector:
-    app: nginx
+    app: nginx-app
 
