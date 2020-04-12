@@ -65,8 +65,10 @@ spec:
     # the port that this service should serve on
     - port: 80
       targetPort: 80
+      name: tcp-80
     - port: 443
       targetPort: 443
+      name: tcp-443
   # label keys and values that must match in order to receive traffic for this service
   selector:
     app: nginx-app
