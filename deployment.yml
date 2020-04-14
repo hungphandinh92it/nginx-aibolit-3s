@@ -59,7 +59,6 @@ metadata:
   labels:
     app: nginx-svc
   name: nginx-svc
-  namespace: default
 spec:
   externalIPs:
   - 119.81.233.140
