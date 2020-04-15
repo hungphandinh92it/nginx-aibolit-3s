@@ -35,7 +35,7 @@ kind: Deployment
 metadata:
   name: nginx-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nginx-app
@@ -56,24 +56,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: nginx-svc
   labels:
     app: nginx-svc
-  name: nginx-svc
 spec:
-  externalIPs:
-  - 119.81.233.140
+  type: NodePort
   ports:
-  - name: "80"
-    port: 8080
-    protocol: TCP
-    targetPort: 80
-  - name: "443"
-    port: 8443
-    protocol: TCP
-    targetPort: 443
+    # the port that this service should serve on
+    - port: 80
+      targetPort: 80
+  # label keys and values that must match in order to receive traffic for this service
   selector:
     app: nginx-app
-  sessionAffinity: None
-  type: ClusterIP
-status:
-  loadBalancer: {}
+
