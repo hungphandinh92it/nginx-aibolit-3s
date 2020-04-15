@@ -48,7 +48,7 @@ spec:
       - name: nginx-app
         image: nginx:1
         # for local development against minikube registry
-        #imagePullPolicy: Never        
+        #imagePullPolicy: Never
         ports:
         - containerPort: 80
         - containerPort: 443
@@ -64,11 +64,11 @@ spec:
   - 119.81.233.140
   ports:
   - name: "80"
-    port: 80
+    port: 8080
     protocol: TCP
     targetPort: 80
   - name: "443"
-    port: 443
+    port: 8443
     protocol: TCP
     targetPort: 443
   selector:
