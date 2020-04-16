@@ -72,6 +72,6 @@ spec:
   selector:
     app: nginx-app
   sessionAffinity: None
-  type: NodePort
+  type: LoadBalancer
 status:
   loadBalancer: {}
