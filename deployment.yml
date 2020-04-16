@@ -60,8 +60,8 @@ metadata:
   labels:
     app: nginx-svc
 spec:
-  externalIPs:
-    - 119.81.233.140
+    externalIPs:
+      - 119.81.233.140
     ports:
       - name: "80"
         port: 80
