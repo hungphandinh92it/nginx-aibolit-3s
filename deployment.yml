@@ -74,6 +74,6 @@ spec:
     selector:
       app: nginx-app
     sessionAffinity: None
-    type: ClusterIP
+    type: NodePort
 status:
   loadBalancer: {}
